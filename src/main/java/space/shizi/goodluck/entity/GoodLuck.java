@@ -46,7 +46,8 @@ public class GoodLuck {
     @Column(name = "content")
     private String content;
 
-    @OneToMany(mappedBy = "goodLuck", fetch = FetchType.EAGER)
-    private List<PrizeGrade> prizeGrades = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "good_luck_id")
+    private List<PrizeGrade> prizegrades = new ArrayList<>();
 
 }

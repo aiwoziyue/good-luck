@@ -19,13 +19,12 @@ public class PrizeGrade {
     private Integer type;
 
     @Column(name = "typenum")
-    private String typeNum;
+    private String typenum;
 
     @Column(name = "typemoney")
-    private String typeMoney;
+    private String typemoney;
 
-    @ManyToOne
-    @JoinColumn(name = "good_luck_id")
-    private GoodLuck goodLuck;
+    @Column(name = "good_luck_id")
+    private Long goodLuckId;
 
 }

@@ -21,7 +21,7 @@ public class CwlUtil {
     public static List<GoodLuck> getResult(String response) {
         JSONObject body = JSONUtil.parseObj(response);
         JSONArray result = body.getJSONArray("result");
-        return JSONUtil.toList(result, GoodLuck.class);
+        return result.toList(GoodLuck.class);
     }
 
     public static List<GoodLuck> page(Map<String, Object> params) {
@@ -40,6 +40,7 @@ public class CwlUtil {
         responseCode = response.getStatus();
         String body = response.body();
         if (responseCode == HttpURLConnection.HTTP_OK) {
+            log.info("page:{}", body);
             return getResult(body);
         } else {
             log.error("CwlUtil.page2 code:{},{}", response.getStatus(), response.body());
