@@ -24,6 +24,10 @@ public class CwlUtil {
         return result.toList(GoodLuck.class);
     }
 
+    /**
+     * @param params ?name=ssq&pageNo=1&pageSize=1&systemType=PC
+     * @return List<GoodLuck>
+     */
     public static List<GoodLuck> page(Map<String, Object> params) {
         HttpResponse response = HttpRequest.get(url + "?" + HttpUtil.toParams(params)).executeAsync();
         int responseCode = response.getStatus();
